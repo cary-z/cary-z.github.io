@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/28/screen%20adaptation/">Screen Adaptation</a>
+      <a class="p-name article-title" href="/2021/07/28/screen%20adaptation/">前端大屏适配问题(用react示例)</a>
     </h1>
   
 
@@ -93,12 +93,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="前端大屏适配问题-用react示例"><a href="#前端大屏适配问题-用react示例" class="headerlink" title="前端大屏适配问题(用react示例)"></a>前端大屏适配问题(用react示例)</h2><p>采用了css3的缩放transform: scale(X)属性</p>
+        <p>采用了css3的缩放transform: scale(X)属性</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &#x27;react&#x27;;</span><br><span class="line">import debounce from &#x27;lodash.debounce&#x27;</span><br><span class="line">import s from &#x27;./index.less&#x27;</span><br><span class="line"></span><br><span class="line">class Comp extends Component&#123;</span><br><span class="line">  constructor(p) &#123;</span><br><span class="line">    super(p)</span><br><span class="line">    this.state=&#123;</span><br><span class="line">      scale: this.getScale()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    window.addEventListener(&#x27;resize&#x27;, this.setScale)</span><br><span class="line">  &#125;</span><br><span class="line">  getScale=() =&gt; &#123;</span><br><span class="line">    const &#123;width=1920, height=1080&#125; = this.props</span><br><span class="line">    let ww=window.innerWidth/width</span><br><span class="line">    let wh=window.innerHeight/height</span><br><span class="line">    return ww&lt;wh?ww: wh</span><br><span class="line">  &#125;</span><br><span class="line">  setScale = debounce(() =&gt; &#123;</span><br><span class="line">    let scale=this.getScale()</span><br><span class="line">    this.setState(&#123; scale &#125;)</span><br><span class="line">  &#125;, 500)</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123;width=1920, height=1080, children&#125; = this.props</span><br><span class="line">    const &#123;scale&#125; = this.state</span><br><span class="line">    return(</span><br><span class="line">      &lt;div</span><br><span class="line">        className=&#123;s[&#x27;scale-box&#x27;]&#125;</span><br><span class="line">        style=&#123;&#123;</span><br><span class="line">          transform: `scale($&#123;scale&#125;) translate(-50%, -50%)`,</span><br><span class="line">          WebkitTransform: `scale($&#123;scale&#125;) translate(-50%, -50%)`,</span><br><span class="line">          width,</span><br><span class="line">          height</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &#123;children&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    window.removeEventListener(&#x27;resize&#x27;, this.setScale)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Comp</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/28/screen%20adaptation/" data-id="ckrn9i2tc00028vjo05069hd4" data-title="Screen Adaptation" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/28/screen%20adaptation/" data-id="ckrnavy7p0002oojo7iqe12mw" data-title="前端大屏适配问题(用react示例)" class="article-share-link">Share</a>
       
       
       
@@ -124,7 +124,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/27/Create%20SSH%20key/">Create SSH key</a>
+      <a class="p-name article-title" href="/2021/07/27/Create%20SSH%20key/">生成ssh-key</a>
     </h1>
   
 
@@ -132,7 +132,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh-key"></a>生成ssh-key</h2><p>打开终端在终端输入以下代码:</p>
+        <p>打开终端在终端输入以下代码:</p>
 <p><code>$ ls ~/.ssh</code></p>
 <p>如果输出内容里边包含(其中id_rsa是私钥，id_rsa.pub是公钥)</p>
 <p><code>id_rsa id_rsa.pub</code></p>
@@ -145,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/27/Create%20SSH%20key/" data-id="ckrn9i2t900018vjo35j65z2p" data-title="Create SSH key" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/27/Create%20SSH%20key/" data-id="ckrnavy7q0003oojo11s5ertq" data-title="生成ssh-key" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +171,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/27/download%20file(post)/">Download File(post)</a>
+      <a class="p-name article-title" href="/2021/07/27/download%20file(post)/">post请求下下载文件的方法</a>
     </h1>
   
 
@@ -179,12 +179,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="post请求下下载文件的方法"><a href="#post请求下下载文件的方法" class="headerlink" title="post请求下下载文件的方法"></a>post请求下下载文件的方法</h2><p>如果后端是用post请求并且返回文件流可以采用以下代码</p>
+        <p>如果后端是用post请求并且返回文件流可以采用以下代码</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$api.post( url, &#123; params &#125;, &#123; <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span> &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 触发下载</span></span><br><span class="line">    <span class="keyword">const</span> filename = res.headers[<span class="string">&#x27;content-disposition&#x27;</span>].replace(<span class="string">&#x27;attachment; filename=&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="regexp">/\&quot;/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> downloadElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> href = <span class="built_in">window</span>.URL.createObjectURL(res.data)</span><br><span class="line">    downloadElement.href = href</span><br><span class="line">    downloadElement.download = filename</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(downloadElement)</span><br><span class="line">    downloadElement.click()</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(downloadElement)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.$message.error(<span class="string">&#x27;下载失败,&#x27;</span> + err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/27/download%20file(post)/" data-id="ckrn9i2te00038vjo4n5w11tm" data-title="Download File(post)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/27/download%20file(post)/" data-id="ckrnavy7n0001oojoawyyh8mc" data-title="post请求下下载文件的方法" class="article-share-link">Share</a>
       
       
       
@@ -210,7 +210,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/27/Disable%20Chrome%20Update/">Disable Chrome Update</a>
+      <a class="p-name article-title" href="/2021/07/27/Disable%20Chrome%20Update/">mac禁用chrome更新</a>
     </h1>
   
 
@@ -218,7 +218,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="mac禁用chrome更新"><a href="#mac禁用chrome更新" class="headerlink" title="mac禁用chrome更新"></a>mac禁用chrome更新</h2><h3 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h3><p>在终端输入:</p>
+        <h3 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h3><p>在终端输入:</p>
 <p><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p>
 <h3 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h3><p>在终端输入:</p>
 <p><code>cd ~/Library/Google</code><br><code>sudo chown root:staff GoogleSoftwareUpdate</code></p>
@@ -226,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/27/Disable%20Chrome%20Update/" data-id="ckrn9i2t400008vjo4t0thypw" data-title="Disable Chrome Update" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/27/Disable%20Chrome%20Update/" data-id="ckrnavy7h0000oojo5vm35fm8" data-title="mac禁用chrome更新" class="article-share-link">Share</a>
       
       
       
@@ -269,19 +269,19 @@
       <ul>
         
           <li>
-            <a href="/2021/07/28/screen%20adaptation/">Screen Adaptation</a>
+            <a href="/2021/07/28/screen%20adaptation/">前端大屏适配问题(用react示例)</a>
           </li>
         
           <li>
-            <a href="/2021/07/27/Create%20SSH%20key/">Create SSH key</a>
+            <a href="/2021/07/27/Create%20SSH%20key/">生成ssh-key</a>
           </li>
         
           <li>
-            <a href="/2021/07/27/download%20file(post)/">Download File(post)</a>
+            <a href="/2021/07/27/download%20file(post)/">post请求下下载文件的方法</a>
           </li>
         
           <li>
-            <a href="/2021/07/27/Disable%20Chrome%20Update/">Disable Chrome Update</a>
+            <a href="/2021/07/27/Disable%20Chrome%20Update/">mac禁用chrome更新</a>
           </li>
         
       </ul>

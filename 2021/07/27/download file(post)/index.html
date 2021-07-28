@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Download File(post) | Hexo</title>
+  <title>post请求下下载文件的方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="post请求下下载文件的方法如果后端是用post请求并且返回文件流可以采用以下代码 123456789101112131415this.$api.post( url, &amp;#123; params &amp;#125;, &amp;#123; responseType: &amp;#x27;blob&amp;#x27; &amp;#125;)  .then((res) &#x3D;&gt; &amp;#123;    &#x2F;&#x2F; 触发下载    const fi">
+  <meta name="description" content="如果后端是用post请求并且返回文件流可以采用以下代码 123456789101112131415this.$api.post( url, &amp;#123; params &amp;#125;, &amp;#123; responseType: &amp;#x27;blob&amp;#x27; &amp;#125;)  .then((res) &#x3D;&gt; &amp;#123;    &#x2F;&#x2F; 触发下载    const filename &#x3D; res.h">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Download File(post)">
+<meta property="og:title" content="post请求下下载文件的方法">
 <meta property="og:url" content="http://example.com/2021/07/27/download%20file(post)/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="post请求下下载文件的方法如果后端是用post请求并且返回文件流可以采用以下代码 123456789101112131415this.$api.post( url, &amp;#123; params &amp;#125;, &amp;#123; responseType: &amp;#x27;blob&amp;#x27; &amp;#125;)  .then((res) &#x3D;&gt; &amp;#123;    &#x2F;&#x2F; 触发下载    const fi">
+<meta property="og:description" content="如果后端是用post请求并且返回文件流可以采用以下代码 123456789101112131415this.$api.post( url, &amp;#123; params &amp;#125;, &amp;#123; responseType: &amp;#x27;blob&amp;#x27; &amp;#125;)  .then((res) &#x3D;&gt; &amp;#123;    &#x2F;&#x2F; 触发下载    const filename &#x3D; res.h">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-27T06:46:49.000Z">
-<meta property="article:modified_time" content="2021-07-28T08:32:52.000Z">
+<meta property="article:modified_time" content="2021-07-28T09:41:42.000Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -87,7 +87,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Download File(post)
+      post请求下下载文件的方法
     </h1>
   
 
@@ -95,12 +95,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="post请求下下载文件的方法"><a href="#post请求下下载文件的方法" class="headerlink" title="post请求下下载文件的方法"></a>post请求下下载文件的方法</h2><p>如果后端是用post请求并且返回文件流可以采用以下代码</p>
+        <p>如果后端是用post请求并且返回文件流可以采用以下代码</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$api.post( url, &#123; params &#125;, &#123; <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span> &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 触发下载</span></span><br><span class="line">    <span class="keyword">const</span> filename = res.headers[<span class="string">&#x27;content-disposition&#x27;</span>].replace(<span class="string">&#x27;attachment; filename=&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="regexp">/\&quot;/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> downloadElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> href = <span class="built_in">window</span>.URL.createObjectURL(res.data)</span><br><span class="line">    downloadElement.href = href</span><br><span class="line">    downloadElement.download = filename</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(downloadElement)</span><br><span class="line">    downloadElement.click()</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(downloadElement)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.$message.error(<span class="string">&#x27;下载失败,&#x27;</span> + err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/27/download%20file(post)/" data-id="ckrn9i2te00038vjo4n5w11tm" data-title="Download File(post)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/27/download%20file(post)/" data-id="ckrnavy7n0001oojoawyyh8mc" data-title="post请求下下载文件的方法" class="article-share-link">Share</a>
       
       
       
@@ -114,7 +114,7 @@
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Create SSH key
+          生成ssh-key
         
       </div>
     </a>
@@ -122,7 +122,7 @@
   
     <a href="/2021/07/27/Disable%20Chrome%20Update/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Disable Chrome Update</div>
+      <div class="article-nav-title">mac禁用chrome更新</div>
     </a>
   
 </nav>
@@ -160,19 +160,19 @@
       <ul>
         
           <li>
-            <a href="/2021/07/28/screen%20adaptation/">Screen Adaptation</a>
+            <a href="/2021/07/28/screen%20adaptation/">前端大屏适配问题(用react示例)</a>
           </li>
         
           <li>
-            <a href="/2021/07/27/Create%20SSH%20key/">Create SSH key</a>
+            <a href="/2021/07/27/Create%20SSH%20key/">生成ssh-key</a>
           </li>
         
           <li>
-            <a href="/2021/07/27/download%20file(post)/">Download File(post)</a>
+            <a href="/2021/07/27/download%20file(post)/">post请求下下载文件的方法</a>
           </li>
         
           <li>
-            <a href="/2021/07/27/Disable%20Chrome%20Update/">Disable Chrome Update</a>
+            <a href="/2021/07/27/Disable%20Chrome%20Update/">mac禁用chrome更新</a>
           </li>
         
       </ul>
