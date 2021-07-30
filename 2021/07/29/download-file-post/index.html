@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          mac禁用chrome更新 - cary_blog
+          post请求下下载文件的方法 - cary_blog
         
     </title>
 
-    <link rel="canonical" href="https://dusign.net/2021/07/27/Disable-Chrome-Update/">
+    <link rel="canonical" href="https://dusign.net/2021/07/29/download-file-post/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -111,20 +111,20 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#bash" title="bash">bash</a>
+                              <a class="tag" href="/tags/#vue" title="vue">vue</a>
                             
                         </div>
-                        <h1>mac禁用chrome更新</h1>
+                        <h1>post请求下下载文件的方法</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by cary on
-                            2021-07-27
+                            2021-07-29
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">32</span> and
+                                Words <span class="post-count">96</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -273,8 +273,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h2><p>在终端输入:<br><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p>
-<h2 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h2><p>在终端输入:<br><code>cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate</code></p>
+                <p>如果后端是用 post 请求并且返回文件流可以采用以下代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$api</span><br><span class="line">  .post(url, &#123; params &#125;, &#123; <span class="attr">responseType</span>: <span class="string">'blob'</span> &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 触发下载</span></span><br><span class="line">    <span class="keyword">const</span> filename = res.headers[<span class="string">'content-disposition'</span>]</span><br><span class="line">      .replace(<span class="string">'attachment; filename='</span>, <span class="string">''</span>)</span><br><span class="line">      .replace(<span class="regexp">/\"/g</span>, <span class="string">''</span>)</span><br><span class="line">    <span class="keyword">const</span> downloadElement = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">    <span class="keyword">const</span> href = <span class="built_in">window</span>.URL.createObjectURL(res.data)</span><br><span class="line">    downloadElement.href = href</span><br><span class="line">    downloadElement.download = filename</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(downloadElement)</span><br><span class="line">    downloadElement.click()</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(downloadElement)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$message.error(<span class="string">'下载失败,'</span> + err)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 
                 
                 <hr>
@@ -282,9 +282,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/07/27/download-file-post/" data-toggle="tooltip" data-placement="top" title="post请求下下载文件的方法">&larr; Previous Post</a>
+                        <a href="/2021/07/29/Disable-Chrome-Update/" data-toggle="tooltip" data-placement="top" title="mac禁用chrome更新">&larr; Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/2021/07/29/screen-adaptation/" data-toggle="tooltip" data-placement="top" title="前端大屏适配问题(用react示例)">Next Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
@@ -391,17 +395,6 @@
 
     
       
-        <aside id="sidebar">
-          <div id="toc" class="toc-article">
-          <strong class="toc-title">Contents</strong>
-          
-            
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#禁止更新"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">禁止更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#恢复更新"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">恢复更新</span></a></li></ol>
-            
-          
-          </div>
-        </aside>
-      
     
 
                 
@@ -418,7 +411,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#bash" title="bash">bash</a>
+                          <a class="tag" href="/tags/#vue" title="vue">vue</a>
                         
                     </div>
                 </section>

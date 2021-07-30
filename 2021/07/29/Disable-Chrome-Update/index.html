@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          生成ssh-key - cary_blog
+          mac禁用chrome更新 - cary_blog
         
     </title>
 
-    <link rel="canonical" href="https://dusign.net/2021/07/27/Create-SSH-key/">
+    <link rel="canonical" href="https://dusign.net/2021/07/29/Disable-Chrome-Update/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -114,17 +114,17 @@
                               <a class="tag" href="/tags/#bash" title="bash">bash</a>
                             
                         </div>
-                        <h1>生成ssh-key</h1>
+                        <h1>mac禁用chrome更新</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by cary on
-                            2021-07-27
+                            2021-07-29
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">178</span> and
+                                Words <span class="post-count">32</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -273,15 +273,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>打开终端在终端输入以下代码:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br></pre></td></tr></table></figure>
-<p>如果输出内容里边包含(其中 id_rsa 是私钥，id_rsa.pub 是公钥)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>如果输出如下则表示你的电脑没有生成过公钥和私钥，则要进行生成操作:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
-<p>在终端执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure>
-<p>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>以上代码省略了 -f 参数，因此，运行上面那条命令后会让你输入一个文件名，用于保存刚才生成的 SSH key 代码</p>
+                <h2 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h2><p>在终端输入:<br><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p>
+<h2 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h2><p>在终端输入:<br><code>cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate</code></p>
 
                 
                 <hr>
@@ -289,12 +282,12 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/07/28/screen-adaptation/" data-toggle="tooltip" data-placement="top" title="前端大屏适配问题(用react示例)">&larr; Previous Post</a>
+                        <a href="/2021/07/29/Create-SSH-key/" data-toggle="tooltip" data-placement="top" title="生成ssh-key">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/07/27/download-file-post/" data-toggle="tooltip" data-placement="top" title="post请求下下载文件的方法">Next Post &rarr;</a>
+                        <a href="/2021/07/29/download-file-post/" data-toggle="tooltip" data-placement="top" title="post请求下下载文件的方法">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -401,6 +394,17 @@
             <!-- Table of Contents -->
 
     
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#禁止更新"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">禁止更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#恢复更新"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">恢复更新</span></a></li></ol>
+            
+          
+          </div>
+        </aside>
       
     
 

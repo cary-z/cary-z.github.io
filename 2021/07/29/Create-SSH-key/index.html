@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          post请求下下载文件的方法 - cary_blog
+          生成ssh-key - cary_blog
         
     </title>
 
-    <link rel="canonical" href="https://dusign.net/2021/07/27/download-file-post/">
+    <link rel="canonical" href="https://dusign.net/2021/07/29/Create-SSH-key/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -111,20 +111,20 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#vue" title="vue">vue</a>
+                              <a class="tag" href="/tags/#bash" title="bash">bash</a>
                             
                         </div>
-                        <h1>post请求下下载文件的方法</h1>
+                        <h1>生成ssh-key</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by cary on
-                            2021-07-27
+                            2021-07-29
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">96</span> and
+                                Words <span class="post-count">178</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -273,21 +273,24 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>如果后端是用 post 请求并且返回文件流可以采用以下代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$api</span><br><span class="line">  .post(url, &#123; params &#125;, &#123; <span class="attr">responseType</span>: <span class="string">'blob'</span> &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 触发下载</span></span><br><span class="line">    <span class="keyword">const</span> filename = res.headers[<span class="string">'content-disposition'</span>]</span><br><span class="line">      .replace(<span class="string">'attachment; filename='</span>, <span class="string">''</span>)</span><br><span class="line">      .replace(<span class="regexp">/\"/g</span>, <span class="string">''</span>)</span><br><span class="line">    <span class="keyword">const</span> downloadElement = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">    <span class="keyword">const</span> href = <span class="built_in">window</span>.URL.createObjectURL(res.data)</span><br><span class="line">    downloadElement.href = href</span><br><span class="line">    downloadElement.download = filename</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(downloadElement)</span><br><span class="line">    downloadElement.click()</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(downloadElement)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$message.error(<span class="string">'下载失败,'</span> + err)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+                <p>打开终端在终端输入以下代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>如果输出内容里边包含(其中 id_rsa 是私钥，id_rsa.pub 是公钥)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>如果输出如下则表示你的电脑没有生成过公钥和私钥，则要进行生成操作:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure>
+<p>在终端执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure>
+<p>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>以上代码省略了 -f 参数，因此，运行上面那条命令后会让你输入一个文件名，用于保存刚才生成的 SSH key 代码</p>
 
                 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2021/07/27/Create-SSH-key/" data-toggle="tooltip" data-placement="top" title="生成ssh-key">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2021/07/27/Disable-Chrome-Update/" data-toggle="tooltip" data-placement="top" title="mac禁用chrome更新">Next Post &rarr;</a>
+                        <a href="/2021/07/29/Disable-Chrome-Update/" data-toggle="tooltip" data-placement="top" title="mac禁用chrome更新">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -411,7 +414,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#vue" title="vue">vue</a>
+                          <a class="tag" href="/tags/#bash" title="bash">bash</a>
                         
                     </div>
                 </section>
