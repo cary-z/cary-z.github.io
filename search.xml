@@ -54,31 +54,6 @@
     
     
     <entry>
-      <title>mac禁用chrome更新</title>
-      <link href="/2021/07/29/Disable-Chrome-Update/"/>
-      <url>/2021/07/29/Disable-Chrome-Update/</url>
-      
-        <content type="html"><![CDATA[<h2 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h2><p>在终端输入:<br><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p><h2 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h2><p>在终端输入:<br><code>cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate</code></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Google </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> bash </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>post请求下下载文件的方法</title>
       <link href="/2021/07/29/download-file-post/"/>
       <url>/2021/07/29/download-file-post/</url>
@@ -96,6 +71,31 @@
         <tags>
             
             <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mac禁用chrome更新</title>
+      <link href="/2021/07/29/Disable-Chrome-Update/"/>
+      <url>/2021/07/29/Disable-Chrome-Update/</url>
+      
+        <content type="html"><![CDATA[<h2 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h2><p>在终端输入:<br><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p><h2 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h2><p>在终端输入:<br><code>cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Google </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bash </tag>
             
         </tags>
       
