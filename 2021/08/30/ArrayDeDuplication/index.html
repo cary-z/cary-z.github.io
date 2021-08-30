@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          mac禁用chrome更新 - cary_blog
+          数组去重处理 - cary_blog
         
     </title>
 
-    <link rel="canonical" href="https://dusign.net/2021/07/29/Disable-Chrome-Update/">
+    <link rel="canonical" href="https://dusign.net/2021/08/30/ArrayDeDuplication/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -111,20 +111,20 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#bash" title="bash">bash</a>
+                              <a class="tag" href="/tags/#js" title="js">js</a>
                             
                         </div>
-                        <h1>mac禁用chrome更新</h1>
+                        <h1>数组去重处理</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by cary on
-                            2021-07-29
+                            2021-08-30
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">32</span> and
+                                Words <span class="post-count">260</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -186,14 +186,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -273,21 +273,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h2><p>在终端输入:<br><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p>
-<h2 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h2><p>在终端输入:<br><code>cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate</code></p>
-
+                <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">123</span>,<span class="string">'webank'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="string">'123'</span>,[&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;],[&#123;<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">a</span>:<span class="number">1</span>&#125;],&#123;<span class="attr">c</span>:<span class="number">3</span>,<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">d</span>:<span class="literal">null</span>&#125;,<span class="string">'tencent'</span>,<span class="number">123</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">c</span>:<span class="number">3</span>,<span class="attr">d</span>:<span class="literal">null</span>&#125;,<span class="literal">null</span>,<span class="literal">null</span>,<span class="literal">NaN</span>,<span class="literal">NaN</span>]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayDeDuplication</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">checkRepeat</span>(<span class="params">obj1,obj2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj1 === <span class="literal">null</span>) <span class="keyword">return</span> obj1 === obj2</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.getOwnPropertyNames(obj1).length !== <span class="built_in">Object</span>.getOwnPropertyNames(obj2).length) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj1) &#123;</span><br><span class="line">      <span class="keyword">const</span> [item1,item2] = [obj1[key],obj2[key]]</span><br><span class="line">      <span class="keyword">if</span> (obj2.hasOwnProperty(key)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> item1 === <span class="keyword">typeof</span> item2 &amp;&amp; <span class="keyword">typeof</span> item1 === <span class="string">'object'</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> checkRepeat(item1,item2)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Number</span>.isNaN(item1) &amp;&amp; <span class="built_in">Number</span>.isNaN(item2)) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> item1 === item2</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 双重循环</span></span><br><span class="line">  <span class="keyword">const</span> newArr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> item === <span class="string">'object'</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> flag = newArr.every(<span class="function"><span class="params">newItem</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> newItem !== <span class="string">'object'</span>) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> !checkRepeat(item,newItem)</span><br><span class="line">      &#125;)</span><br><span class="line">      flag &amp;&amp; newArr.push(item)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      newArr.includes(item) || newArr.push(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr</span><br><span class="line"></span><br><span class="line">  <span class="comment">// reduce方法</span></span><br><span class="line">  <span class="comment">// return arr.reduce((acc,cur) =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   if (typeof cur === 'object') &#123;</span></span><br><span class="line">  <span class="comment">//     const flag = acc.every(newItem =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//       if (typeof newItem !== 'object') return true</span></span><br><span class="line">  <span class="comment">//       else if (Array.isArray(newItem) || newItem == null ||  item == null) return JSON.stringify(item) !== JSON.stringify(newItem)</span></span><br><span class="line">  <span class="comment">//       else return !checkRepeat(item,newItem)</span></span><br><span class="line">  <span class="comment">//     &#125;)</span></span><br><span class="line">  <span class="comment">//     flag &amp;&amp; acc.push(cur)</span></span><br><span class="line">  <span class="comment">//   &#125; else &#123;</span></span><br><span class="line">  <span class="comment">//     acc.includes(cur) || acc.push(cur)</span></span><br><span class="line">  <span class="comment">//   &#125;</span></span><br><span class="line">  <span class="comment">//   return acc</span></span><br><span class="line">  <span class="comment">// &#125;,[])</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ArrayDeDuplication(arr))</span><br></pre></td></tr></table></figure>
                 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2021/07/29/Create-SSH-key/" data-toggle="tooltip" data-placement="top" title="生成ssh-key">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2021/07/29/download-file-post/" data-toggle="tooltip" data-placement="top" title="post请求下下载文件的方法">Next Post &rarr;</a>
+                        <a href="/2021/08/26/Array-flattening/" data-toggle="tooltip" data-placement="top" title="数组扁平化处理">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -331,17 +325,6 @@
 
     
       
-        <aside id="sidebar">
-          <div id="toc" class="toc-article">
-          <strong class="toc-title">Contents</strong>
-          
-            
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#禁止更新"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">禁止更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#恢复更新"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">恢复更新</span></a></li></ol>
-            
-          
-          </div>
-        </aside>
-      
     
 
                 
@@ -358,7 +341,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#bash" title="bash">bash</a>
+                          <a class="tag" href="/tags/#js" title="js">js</a>
                         
                     </div>
                 </section>
