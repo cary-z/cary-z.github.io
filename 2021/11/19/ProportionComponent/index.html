@@ -16,7 +16,7 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          二次封装EChart - cary_blog
+          封装占比组件 - cary_blog
         
     </title>
 
@@ -111,10 +111,10 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#vue" title="vue">vue</a>
+                              <a class="tag" href="/tags/#react" title="react">react</a>
                             
                         </div>
-                        <h1>二次封装EChart</h1>
+                        <h1>封装占比组件</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by cary on
@@ -124,7 +124,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">410</span> and
+                                Words <span class="post-count">414</span> and
                                 Reading Time <span class="post-count">2</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -207,14 +207,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/photography/">Photography</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/photography/">Photography</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -274,8 +274,9 @@
                 post-container">
 
                 <h2 id="封装占比的组件"><a href="#封装占比的组件" class="headerlink" title="封装占比的组件"></a>封装占比的组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div v-if&#x3D;&quot;isError&quot;&gt;</span><br><span class="line">      &lt;span&gt;数据异常&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div v-else</span><br><span class="line">         class&#x3D;&quot;ProportionChart&quot;&gt;</span><br><span class="line">      &lt;template v-for&#x3D;&quot;(item,index) in proportion&quot;&gt;</span><br><span class="line">        &lt;div :key&#x3D;&quot;&#39;proportion_&#39;+index&quot;</span><br><span class="line">             :style&#x3D;&quot;item&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">      &lt;&#x2F;template&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;proportion-chart&#39;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    seriesData: &#123;</span><br><span class="line">      type: Object,</span><br><span class="line">      required: true,</span><br><span class="line">      deep: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      proportion: [],</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    seriesData: &#123;</span><br><span class="line">      handler () &#123;</span><br><span class="line">        if (this.proportion.length &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">          const color &#x3D; [&#39;#1D9BF6&#39;, &#39;#FF001E&#39;, &#39;#00BB28&#39;]</span><br><span class="line">          for (let i &#x3D; 0; i &lt; this.seriesData.proportion.value.length; i++) &#123;</span><br><span class="line">            this.proportion.push(&#123;</span><br><span class="line">              backgroundColor: color[this.seriesData.proportion.value.length - 1 - i],</span><br><span class="line">              height: &#39;35px&#39;,</span><br><span class="line">              width: &#39;100%&#39;,</span><br><span class="line">              flexShrink: 0,</span><br><span class="line">              transition: &#39;all 1s&#39;,</span><br><span class="line">              transform: &#96;translateX($&#123;-(i + 1) * 100&#125;%)&#96;</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.$nextTick(() &#x3D;&gt; &#123;</span><br><span class="line">          let num &#x3D; 0</span><br><span class="line">          for (let i &#x3D; this.seriesData.proportion.value.length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">            const offset &#x3D; this.seriesData.proportion.value[i] &#x2F; this.seriesData.total.value * 100</span><br><span class="line">            this.proportion[i].transform &#x3D; &#96;translateX($&#123;-(i + 1) * 100 + num + offset&#125;%)&#96;</span><br><span class="line">            num +&#x3D; offset</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;,</span><br><span class="line">      immediate: true,</span><br><span class="line">      deep: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    isError () &#123;</span><br><span class="line">      const total &#x3D; this.seriesData.total.value</span><br><span class="line">      if (!total) &#123; return true &#125;</span><br><span class="line">      return total &lt; this.seriesData.proportion.value.reduce((pre, cur) &#x3D;&gt; pre + cur, 0)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style lang&#x3D;&quot;scss&quot; scoped&gt;</span><br><span class="line">::v-deep .ProportionChart &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 35px;</span><br><span class="line">  background-color: gray;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="示例图片"><a href="#示例图片" class="headerlink" title="示例图片"></a>示例图片</h2><p><img src="https://www.jianguoyun.com/c/tblv2/BZ-zmW1Rxb7S8R5WVtJsIIFcdEOXf-mBfF2gYOT-aCFIJkfr6IadTPK1y4eDjQlOChE/mWjUJLsoLrIyX4bqotzUaA/l" alt="示例图"></p>
 <h2 id="传入数据结构"><a href="#传入数据结构" class="headerlink" title="传入数据结构"></a>传入数据结构</h2><p>用了transform来提高性能，外部传入的数据为以下结构</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	total:&#123;</span><br><span class="line">    key:<span class="string">'score'</span>,<span class="comment">// 总数描述</span></span><br><span class="line">    value: <span class="number">100</span><span class="comment">// 总数值</span></span><br><span class="line">  &#125;,</span><br><span class="line">	proportion:&#123;</span><br><span class="line">    key:[<span class="string">'Math'</span>,<span class="string">'English'</span>,<span class="string">'Chinese'</span>],<span class="comment">// 其他占比描述</span></span><br><span class="line">    value:[<span class="number">99</span>,<span class="number">55</span>,<span class="number">77</span>]<span class="comment">// 其他占比的值</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  total:&#123;</span><br><span class="line">    key:<span class="string">'score'</span>,<span class="comment">// 总数描述</span></span><br><span class="line">    value: <span class="number">100</span><span class="comment">// 总数值</span></span><br><span class="line">  &#125;,</span><br><span class="line">  proportion:&#123;</span><br><span class="line">    key:[<span class="string">'Math'</span>,<span class="string">'English'</span>,<span class="string">'Chinese'</span>],<span class="comment">// 其他占比描述</span></span><br><span class="line">    value:[<span class="number">99</span>,<span class="number">55</span>,<span class="number">77</span>]<span class="comment">// 其他占比的值</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
                 <hr>
@@ -333,7 +334,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#封装占比的组件"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">封装占比的组件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#传入数据结构"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">传入数据结构</span></a></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#封装占比的组件"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">封装占比的组件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#示例图片"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">示例图片</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#传入数据结构"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">传入数据结构</span></a></li></ol>
             
           
           </div>
@@ -355,7 +356,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#vue" title="vue">vue</a>
+                          <a class="tag" href="/tags/#react" title="react">react</a>
                         
                     </div>
                 </section>
