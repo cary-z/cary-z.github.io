@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          cary_blog
+          防抖和节流 - cary_blog
         
     </title>
 
-    <link rel="canonical" href="https://dusign.net/categories/transform/">
+    <link rel="canonical" href="https://dusign.net/2021/11/22/debounce-and-throttle/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -89,8 +89,8 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/undefined')
-                /*page*/
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('snail-bg.jpg')
+                /*post*/
             
         
     }
@@ -108,10 +108,33 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>cary&#39;s blog</h1>
-                        <!--<hr class="small">-->
-                        <span id="subdusi" class="subheading">There&#39;s always someone better. There&#39;s no limit in the universe</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#js" title="js">js</a>
+                            
+                        </div>
+                        <h1>防抖和节流</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by cary on
+                            2021-11-22
+                        </span>
+
+                        
+                            <div class="blank_box"></div>
+                            <span class="meta">
+                                Words <span class="post-count">105</span> and
+                                Reading Time <span class="post-count">1</span> Minutes
+                            </span>
+                            <div class="blank_box"></div>
+                            <!-- 不蒜子统计 start -->
+                            <span class="meta">
+                                Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+                            </span>
+                            <!-- 不蒜子统计 end -->
+                        
+
                     </div>
                 
 
@@ -239,389 +262,163 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-    <!-- Post Container -->
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-                
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
-            
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>只要事件发生就延迟设定时间执行传入函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>两次事件发生时间间隔超过设定时间间隔才执行传入函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> previous = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="keyword">if</span> (now - previous &gt; wait) &#123;</span><br><span class="line">      previous = now</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-                    <span class="tag-text">2021</span>
-                </span>
-                <ul>
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-22
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/11/22/debounce-and-throttle/" style="color: #0085a1">
-                        <span>
-                            防抖和节流
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-19
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/11/19/ProportionComponent/" style="color: #0085a1">
-                        <span>
-                            封装占比组件
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-30
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/08/30/ArrayDeDuplication/" style="color: #0085a1">
-                        <span>
-                            数组去重处理
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-26
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/08/26/Array-flattening/" style="color: #0085a1">
-                        <span>
-                            数组扁平化处理
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-13
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/08/13/encapsulating-EChart/" style="color: #0085a1">
-                        <span>
-                            二次封装EChart
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-28
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/07/28/screen-adaptation/" style="color: #0085a1">
-                        <span>
-                            前端大屏适配问题(用react示例)
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-28
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/07/28/download-file-post/" style="color: #0085a1">
-                        <span>
-                            post请求下下载文件的方法
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-28
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/07/28/Disable-Chrome-Update/" style="color: #0085a1">
-                        <span>
-                            mac禁用chrome更新
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-28
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2021/07/28/Create-SSH-key/" style="color: #0085a1">
-                        <span>
-                            生成ssh-key
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/11/19/ProportionComponent/" data-toggle="tooltip" data-placement="top" title="封装占比组件">Next Post &rarr;</a>
+                    </li>
+                    
                 </ul>
+
+                <!-- tip start -->
+                
+
+                
+                <div class="comment_notes">
+                    <p>
+                        This is copyright.
+                    </p>
+                </div>
+                
+                <!-- tip end -->
+
+                <!-- Sharing -->
+                
+                <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                <!--  css & js -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!-- Sharing -->
+
+                <!-- gitment start -->
+                
+                <!-- gitment end -->
+
+                <!-- 来必力City版安装代码 -->
+                
+                <!-- City版安装代码已完成 -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
             </div>
             
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
 
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#防抖"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">防抖</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#节流"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">节流</span></a></li></ol>
+            
+          
+          </div>
+        </aside>
+      
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#js" title="js">js</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://cary-z.github.io/" target="_blank">cary&#39;s Blog</a></li>
+                    
+                        <li><a href="https://github.com/cary-z" target="_blank">cary&#39;s Github</a></li>
+                    
+                </ul>
+                
+            </div>
         </div>
     </div>
-</div>
-            </div>
+</article>
 
-            <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        
-<!--
-<h5>SEARCH</h5>
-<div class="search-article" class="tags">
-	<input id="search-kw" type="text" name="search_article" placeholder="Enter keywords for search" />
-	<div class="search-img">
-		<img 
-			src="/img/search.png" 
-			alt="search" 
-			onMouseOver="this.src='/img/search-focus.png'" 
-			onMouseOut="this.src='/img/search.png'"/>
-	</div>
-</div>-->
 
-<h5>SEARCH</h5>
-<div id="site_search">
-	<div class="form-group">
-		<input type="text" id="local-search-input" name="q" results="0" placeholder="search" class="st-search-input st-default-search-input form-control"/>
-	</div>  
-	<div id="local-search-result"></div>
-</div>
 
-        <hr>
-    
-        <!-- Featured Tags -->
 
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#js" title="js" rel="3">js</a>
-            
-        
-            
-            <a href="/tags/#bash" title="bash" rel="2">bash</a>
-            
-        
-            
-            <a href="/tags/#vue" title="vue" rel="3">vue</a>
-            
-        
-            
-        
-    </div>
-</section>
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/cary.jpg" />
-        
+<style  type="text/css">
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        
-            <p>Welcome to visit, I&#39;m cary!</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/cary-z">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-
-            
-
-            
-                <li>
-                    <a target="_blank" href="https://www.zhihu.com/people/ke-xi-54-80">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-
-            
-
-            
-
-        </ul>
-    </div>
-</section>
-        <hr>
-    
-        
-  <h5>VISITORS</h5>
-  <div class="widget">
-    <span>
-    	Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-	</span>
-	<br/>
-	<span>
-		<b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-	</span>
-  </div>
-
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h5>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/2021/11/22/debounce-and-throttle/">防抖和节流</a>
-        </li>
-      
-        <li>
-          <a href="/2021/11/19/ProportionComponent/">封装占比组件</a>
-        </li>
-      
-        <li>
-          <a href="/2021/08/30/ArrayDeDuplication/">数组去重处理</a>
-        </li>
-      
-        <li>
-          <a href="/2021/08/26/Array-flattening/">数组扁平化处理</a>
-        </li>
-      
-        <li>
-          <a href="/2021/08/13/encapsulating-EChart/">二次封装EChart</a>
-        </li>
-      
-    </ul>
-  </div>
-
-        <hr>
-    
-        <!-- Friends Blog -->
-
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-        <li><a href="https://cary-z.github.io/" target="_blank">cary&#39;s Blog</a></li>
-    
-        <li><a href="https://github.com/cary-z" target="_blank">cary&#39;s Github</a></li>
-    
-</ul>
-
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-
-        <hr>
-    
-        <!-- Categories -->
-
-    <h5>categories</h5>
-    <div class="widget">
-      <ul>
-        
-          <a href="categories/#algorithm"><li>algorithm</li></a>
-        
-          <a href="categories/#CommonMethods"><li>CommonMethods</li></a>
-        
-          <a href="categories/#config"><li>config</li></a>
-        
-          <a href="categories/#Google"><li>Google</li></a>
-        
-          <a href="categories/#download"><li>download</li></a>
-        
-          <a href="categories/#transform"><li>transform</li></a>
-        
-          <a href="categories/#encapsulate"><li>encapsulate</li></a>
-        
-      </ul>
-    </div>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
 
 
     <!-- Footer -->

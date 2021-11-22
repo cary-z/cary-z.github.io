@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>防抖和节流</title>
+      <link href="/2021/11/22/debounce-and-throttle/"/>
+      <url>/2021/11/22/debounce-and-throttle/</url>
+      
+        <content type="html"><![CDATA[<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>只要事件发生就延迟设定时间执行传入函数</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>两次事件发生时间间隔超过设定时间间隔才执行传入函数</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> previous = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="keyword">if</span> (now - previous &gt; wait) &#123;</span><br><span class="line">      previous = now</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> CommonMethods </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>封装占比组件</title>
       <link href="/2021/11/19/ProportionComponent/"/>
       <url>/2021/11/19/ProportionComponent/</url>
