@@ -170,20 +170,6 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -191,7 +177,21 @@
 
                         
                         <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/photography/">Photography</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -274,9 +274,47 @@
 
     
 
+    
+
 
 
 <!-- Main Content -->
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2022/02/16/Write-Method/">
+                <h2 class="post-title">
+                    手写new和call
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    
+                    
+                    
+                    手写new(简陋版)function _new (fn,...arg) &#123;    let obj = Object.create(fn.prototype)    fn.apply(obj,arg)    return obj&#125;
+手写call(简陋版)function _call (obj,...arg) &#123;    const temFn = Symbol('t...
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by cary on
+                    2022-02-16
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#js" title="js">js</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
 
     
 
@@ -607,48 +645,16 @@ this.$api  .post(url, &#123; params &#125;, &#123; responseType: 'blob' &#125;) 
 
     
 
-    
-
-        <div class="post-preview">
-
-            <a href="/2021/07/28/screen-adaptation/">
-                <h2 class="post-title">
-                    前端大屏适配问题(用react示例)
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    
-                    
-                    
-                    采用了 css3 的缩放 transform: scale(X)属性
-import React, &#123; Component &#125; from &#39;react&#39;;import debounce from &#39;lodash.debounce&#39;import s from &#39;.&#x2F;index.less&#39;class Comp exten...
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by cary on
-                    2021-07-28
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#react" title="react">react</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
 
 
 <!-- Pager -->
 
 <ul class="pager">
     
+    
+        <li class="next">
+            <a href="/archives/2/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -696,11 +702,11 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
     <div class="tags">
         
             
-            <a href="/tags/#bash" title="bash" rel="2">bash</a>
+            <a href="/tags/#js" title="js" rel="4">js</a>
             
         
             
-            <a href="/tags/#js" title="js" rel="3">js</a>
+            <a href="/tags/#bash" title="bash" rel="2">bash</a>
             
         
             
@@ -789,6 +795,10 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
     <ul>
       
         <li>
+          <a href="/2022/02/16/Write-Method/">手写new和call</a>
+        </li>
+      
+        <li>
           <a href="/2021/12/07/git-command/">git 命令简写</a>
         </li>
       
@@ -802,10 +812,6 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
       
         <li>
           <a href="/2021/08/30/ArrayDeDuplication/">数组去重处理</a>
-        </li>
-      
-        <li>
-          <a href="/2021/08/26/Array-flattening/">数组扁平化处理</a>
         </li>
       
     </ul>
@@ -830,7 +836,7 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li></ul>
     </div>
 
         <hr>
@@ -841,19 +847,19 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
     <div class="widget">
       <ul>
         
+          <a href="categories/#algorithm"><li>algorithm</li></a>
+        
           <a href="categories/#config"><li>config</li></a>
         
           <a href="categories/#Google"><li>Google</li></a>
         
-          <a href="categories/#algorithm"><li>algorithm</li></a>
+          <a href="categories/#CommonMethods"><li>CommonMethods</li></a>
+        
+          <a href="categories/#encapsulate"><li>encapsulate</li></a>
         
           <a href="categories/#download"><li>download</li></a>
         
           <a href="categories/#transform"><li>transform</li></a>
-        
-          <a href="categories/#encapsulate"><li>encapsulate</li></a>
-        
-          <a href="categories/#CommonMethods"><li>CommonMethods</li></a>
         
       </ul>
     </div>
@@ -974,7 +980,7 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; cary 2021 
+                    Copyright &copy; cary 2022 
                     <br>
                     Powered by 
                     <a href="https://github.com/cary-z/cary_blog" target="_blank" rel="noopener">

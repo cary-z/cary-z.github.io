@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>手写new和call</title>
+      <link href="/2022/02/16/Write-Method/"/>
+      <url>/2022/02/16/Write-Method/</url>
+      
+        <content type="html"><![CDATA[<h2 id="手写new-简陋版"><a href="#手写new-简陋版" class="headerlink" title="手写new(简陋版)"></a>手写new(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span> (<span class="params">fn,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(fn.prototype)</span><br><span class="line">    fn.apply(obj,arg)</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写call-简陋版"><a href="#手写call-简陋版" class="headerlink" title="手写call(简陋版)"></a>手写call(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_call</span> (<span class="params">obj,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> temFn = <span class="built_in">Symbol</span>(<span class="string">'temFn'</span>)</span><br><span class="line">    obj[temFn] = <span class="keyword">this</span></span><br><span class="line">    obj[temFn](...arg)</span><br><span class="line">    <span class="keyword">delete</span> obj[temFn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> CommonMethods </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git 命令简写</title>
       <link href="/2021/12/07/git-command/"/>
       <url>/2021/12/07/git-command/</url>
