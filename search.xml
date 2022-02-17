@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>手写new和call</title>
+      <title>手写各种方法</title>
       <link href="/2022/02/16/Write-Method/"/>
       <url>/2022/02/16/Write-Method/</url>
       
-        <content type="html"><![CDATA[<h2 id="手写new-简陋版"><a href="#手写new-简陋版" class="headerlink" title="手写new(简陋版)"></a>手写new(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span> (<span class="params">fn,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(fn.prototype)</span><br><span class="line">    fn.apply(obj,arg)</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写call-简陋版"><a href="#手写call-简陋版" class="headerlink" title="手写call(简陋版)"></a>手写call(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_call</span> (<span class="params">obj,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> temFn = <span class="built_in">Symbol</span>(<span class="string">'temFn'</span>)</span><br><span class="line">    obj[temFn] = <span class="keyword">this</span></span><br><span class="line">    obj[temFn](...arg)</span><br><span class="line">    <span class="keyword">delete</span> obj[temFn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="手写new-简陋版"><a href="#手写new-简陋版" class="headerlink" title="手写new(简陋版)"></a>手写new(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span> (<span class="params">fn,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(fn.prototype)</span><br><span class="line">    fn.apply(obj,arg)</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写call-简陋版"><a href="#手写call-简陋版" class="headerlink" title="手写call(简陋版)"></a>手写call(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_call</span> (<span class="params">obj,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> temFn = <span class="built_in">Symbol</span>(<span class="string">'temFn'</span>)</span><br><span class="line">    obj[temFn] = <span class="keyword">this</span></span><br><span class="line">    obj[temFn](...arg)</span><br><span class="line">    <span class="keyword">delete</span> obj[temFn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写instanceof-简陋版"><a href="#手写instanceof-简陋版" class="headerlink" title="手写instanceof(简陋版)"></a>手写instanceof(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_instanceof</span> (<span class="params">children,father</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (children) &#123;</span><br><span class="line">        <span class="keyword">if</span> (children.__proto__ === father.prototype) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        children = children.__proto__</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -179,16 +179,16 @@
     
     
     <entry>
-      <title>生成ssh-key</title>
-      <link href="/2021/07/28/Create-SSH-key/"/>
-      <url>/2021/07/28/Create-SSH-key/</url>
+      <title>mac禁用chrome更新</title>
+      <link href="/2021/07/28/Disable-Chrome-Update/"/>
+      <url>/2021/07/28/Disable-Chrome-Update/</url>
       
-        <content type="html"><![CDATA[<p>打开终端在终端输入以下代码:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br></pre></td></tr></table></figure><p>如果输出内容里边包含(其中 id_rsa 是私钥，id_rsa.pub 是公钥)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure><p>如果输出如下则表示你的电脑没有生成过公钥和私钥，则要进行生成操作:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure><p>在终端执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure><p>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>以上代码省略了 -f 参数，因此，运行上面那条命令后会让你输入一个文件名，用于保存刚才生成的 SSH key 代码</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h2><p>在终端输入:<br><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p><h2 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h2><p>在终端输入:<br><code>cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate</code></p>]]></content>
       
       
       <categories>
           
-          <category> config </category>
+          <category> Google </category>
           
       </categories>
       
@@ -204,16 +204,16 @@
     
     
     <entry>
-      <title>mac禁用chrome更新</title>
-      <link href="/2021/07/28/Disable-Chrome-Update/"/>
-      <url>/2021/07/28/Disable-Chrome-Update/</url>
+      <title>生成ssh-key</title>
+      <link href="/2021/07/28/Create-SSH-key/"/>
+      <url>/2021/07/28/Create-SSH-key/</url>
       
-        <content type="html"><![CDATA[<h2 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h2><p>在终端输入:<br><code>cd ~/Library/Google</code><br><code>sudo chown root:wheel GoogleSoftwareUpdate</code></p><h2 id="恢复更新"><a href="#恢复更新" class="headerlink" title="恢复更新"></a>恢复更新</h2><p>在终端输入:<br><code>cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate</code></p>]]></content>
+        <content type="html"><![CDATA[<p>打开终端在终端输入以下代码:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh</span><br></pre></td></tr></table></figure><p>如果输出内容里边包含(其中 id_rsa 是私钥，id_rsa.pub 是公钥)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa    id_rsa.pub</span><br></pre></td></tr></table></figure><p>如果输出如下则表示你的电脑没有生成过公钥和私钥，则要进行生成操作:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No such file or directory</span><br></pre></td></tr></table></figure><p>在终端执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure><p>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>以上代码省略了 -f 参数，因此，运行上面那条命令后会让你输入一个文件名，用于保存刚才生成的 SSH key 代码</p>]]></content>
       
       
       <categories>
           
-          <category> Google </category>
+          <category> config </category>
           
       </categories>
       

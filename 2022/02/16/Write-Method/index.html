@@ -16,7 +16,7 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          手写new和call - cary_blog
+          手写各种方法 - cary_blog
         
     </title>
 
@@ -114,7 +114,7 @@
                               <a class="tag" href="/tags/#js" title="js">js</a>
                             
                         </div>
-                        <h1>手写new和call</h1>
+                        <h1>手写各种方法</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by cary on
@@ -124,7 +124,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">49</span> and
+                                Words <span class="post-count">77</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -186,6 +186,13 @@
 
                         
                         <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -200,7 +207,7 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -208,13 +215,6 @@
                         
                         <li>
                             <a href="/photography/">Photography</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -275,6 +275,7 @@
 
                 <h2 id="手写new-简陋版"><a href="#手写new-简陋版" class="headerlink" title="手写new(简陋版)"></a>手写new(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span> (<span class="params">fn,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(fn.prototype)</span><br><span class="line">    fn.apply(obj,arg)</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="手写call-简陋版"><a href="#手写call-简陋版" class="headerlink" title="手写call(简陋版)"></a>手写call(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_call</span> (<span class="params">obj,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> temFn = <span class="built_in">Symbol</span>(<span class="string">'temFn'</span>)</span><br><span class="line">    obj[temFn] = <span class="keyword">this</span></span><br><span class="line">    obj[temFn](...arg)</span><br><span class="line">    <span class="keyword">delete</span> obj[temFn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="手写instanceof-简陋版"><a href="#手写instanceof-简陋版" class="headerlink" title="手写instanceof(简陋版)"></a>手写instanceof(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_instanceof</span> (<span class="params">children,father</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (children) &#123;</span><br><span class="line">        <span class="keyword">if</span> (children.__proto__ === father.prototype) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        children = children.__proto__</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
                 <hr>
@@ -332,7 +333,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#手写new-简陋版"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">手写new(简陋版)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#手写call-简陋版"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">手写call(简陋版)</span></a></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#手写new-简陋版"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">手写new(简陋版)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#手写call-简陋版"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">手写call(简陋版)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#手写instanceof-简陋版"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">手写instanceof(简陋版)</span></a></li></ol>
             
           
           </div>

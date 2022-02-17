@@ -163,6 +163,13 @@
 
                         
                         <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -177,7 +184,7 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -185,13 +192,6 @@
                         
                         <li>
                             <a href="/photography/">Photography</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -286,7 +286,7 @@
 
             <a href="/2022/02/16/Write-Method/">
                 <h2 class="post-title">
-                    手写new和call
+                    手写各种方法
                 </h2>
                 <h3 class="post-subtitle">
                     
@@ -534,9 +534,9 @@ ChartBar.vue源码&lt;template&gt;  &lt;div i...
 
         <div class="post-preview">
 
-            <a href="/2021/07/28/Create-SSH-key/">
+            <a href="/2021/07/28/Disable-Chrome-Update/">
                 <h2 class="post-title">
-                    生成ssh-key
+                    mac禁用chrome更新
                 </h2>
                 <h3 class="post-subtitle">
                     
@@ -545,14 +545,9 @@ ChartBar.vue源码&lt;template&gt;  &lt;div i...
                     
                     
                     
-                    打开终端在终端输入以下代码:
-1$ ls ~/.ssh
-如果输出内容里边包含(其中 id_rsa 是私钥，id_rsa.pub 是公钥)
-1id_rsa    id_rsa.pub
-如果输出如下则表示你的电脑没有生成过公钥和私钥，则要进行生成操作:
-1No such file or directory
-在终端执行
-1$ ssh-keygen -t rsa -C "your_email@exa...
+                    禁止更新在终端输入:cd ~/Library/Googlesudo chown root:wheel GoogleSoftwareUpdate
+恢复更新在终端输入:cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate
+
                 </div>
             </a>
             
@@ -576,9 +571,9 @@ ChartBar.vue源码&lt;template&gt;  &lt;div i...
 
         <div class="post-preview">
 
-            <a href="/2021/07/28/Disable-Chrome-Update/">
+            <a href="/2021/07/28/Create-SSH-key/">
                 <h2 class="post-title">
-                    mac禁用chrome更新
+                    生成ssh-key
                 </h2>
                 <h3 class="post-subtitle">
                     
@@ -587,9 +582,14 @@ ChartBar.vue源码&lt;template&gt;  &lt;div i...
                     
                     
                     
-                    禁止更新在终端输入:cd ~/Library/Googlesudo chown root:wheel GoogleSoftwareUpdate
-恢复更新在终端输入:cd ~/Library/Googlesudo chown root:staff GoogleSoftwareUpdate
-
+                    打开终端在终端输入以下代码:
+1$ ls ~/.ssh
+如果输出内容里边包含(其中 id_rsa 是私钥，id_rsa.pub 是公钥)
+1id_rsa    id_rsa.pub
+如果输出如下则表示你的电脑没有生成过公钥和私钥，则要进行生成操作:
+1No such file or directory
+在终端执行
+1$ ssh-keygen -t rsa -C "your_email@exa...
                 </div>
             </a>
             
@@ -795,7 +795,7 @@ this.$api  .post(url, &#123; params &#125;, &#123; responseType: 'blob' &#125;) 
     <ul>
       
         <li>
-          <a href="/2022/02/16/Write-Method/">手写new和call</a>
+          <a href="/2022/02/16/Write-Method/">手写各种方法</a>
         </li>
       
         <li>
@@ -849,11 +849,11 @@ this.$api  .post(url, &#123; params &#125;, &#123; responseType: 'blob' &#125;) 
         
           <a href="categories/#algorithm"><li>algorithm</li></a>
         
-          <a href="categories/#config"><li>config</li></a>
-        
           <a href="categories/#Google"><li>Google</li></a>
         
           <a href="categories/#CommonMethods"><li>CommonMethods</li></a>
+        
+          <a href="categories/#config"><li>config</li></a>
         
           <a href="categories/#encapsulate"><li>encapsulate</li></a>
         
