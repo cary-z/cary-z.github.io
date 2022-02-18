@@ -8,7 +8,7 @@
       <link href="/2022/02/16/Write-Method/"/>
       <url>/2022/02/16/Write-Method/</url>
       
-        <content type="html"><![CDATA[<h2 id="手写new-简陋版"><a href="#手写new-简陋版" class="headerlink" title="手写new(简陋版)"></a>手写new(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span> (<span class="params">fn,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(fn.prototype)</span><br><span class="line">    fn.apply(obj,arg)</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写call-简陋版"><a href="#手写call-简陋版" class="headerlink" title="手写call(简陋版)"></a>手写call(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_call</span> (<span class="params">obj,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> temFn = <span class="built_in">Symbol</span>(<span class="string">'temFn'</span>)</span><br><span class="line">    obj[temFn] = <span class="keyword">this</span></span><br><span class="line">    obj[temFn](...arg)</span><br><span class="line">    <span class="keyword">delete</span> obj[temFn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写instanceof-简陋版"><a href="#手写instanceof-简陋版" class="headerlink" title="手写instanceof(简陋版)"></a>手写instanceof(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_instanceof</span> (<span class="params">children,father</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (children) &#123;</span><br><span class="line">        <span class="keyword">if</span> (children.__proto__ === father.prototype) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        children = children.__proto__</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="手写new-简陋版"><a href="#手写new-简陋版" class="headerlink" title="手写new(简陋版)"></a>手写new(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span> (<span class="params">constructor,...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(<span class="keyword">constructor</span>.prototype)</span><br><span class="line">    const result = <span class="keyword">constructor</span>.apply(obj,arg)</span><br><span class="line">  if (result &amp;&amp; typeof (result === 'function' || typeof result === 'object')) &#123;</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写call-简陋版"><a href="#手写call-简陋版" class="headerlink" title="手写call(简陋版)"></a>手写call(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_call</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [_thisArg,...arg] = [...arguments]</span><br><span class="line">    <span class="keyword">const</span> thisArg = <span class="built_in">Object</span>(_thisArg) || <span class="built_in">window</span></span><br><span class="line">    <span class="keyword">const</span> temFn = <span class="built_in">Symbol</span>()</span><br><span class="line">    thisArg[temFn] = <span class="keyword">this</span></span><br><span class="line">    thisArg[temFn](...arg)</span><br><span class="line">    <span class="keyword">delete</span> thisArg[temFn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="手写instanceof-简陋版"><a href="#手写instanceof-简陋版" class="headerlink" title="手写instanceof(简陋版)"></a>手写instanceof(简陋版)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_instanceof</span> (<span class="params">object,constructor</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> object !== <span class="string">'object'</span> || object === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    <span class="keyword">while</span> (object) &#123;</span><br><span class="line">        <span class="keyword">if</span> (object.__proto__ === <span class="keyword">constructor</span>.prototype) return true</span><br><span class="line">        object = object.__proto__</span><br><span class="line">    &#125;</span><br><span class="line">    return false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -229,31 +229,6 @@
     
     
     <entry>
-      <title>post请求下下载文件的方法</title>
-      <link href="/2021/07/28/download-file-post/"/>
-      <url>/2021/07/28/download-file-post/</url>
-      
-        <content type="html"><![CDATA[<p>如果后端是用 post 请求并且返回文件流可以采用以下代码</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$api</span><br><span class="line">  .post(url, &#123; params &#125;, &#123; <span class="attr">responseType</span>: <span class="string">'blob'</span> &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 触发下载</span></span><br><span class="line">    <span class="keyword">const</span> filename = res.headers[<span class="string">'content-disposition'</span>]</span><br><span class="line">      .replace(<span class="string">'attachment; filename='</span>, <span class="string">''</span>)</span><br><span class="line">      .replace(<span class="regexp">/\"/g</span>, <span class="string">''</span>)</span><br><span class="line">    <span class="keyword">const</span> downloadElement = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">    <span class="keyword">const</span> href = <span class="built_in">window</span>.URL.createObjectURL(res.data)</span><br><span class="line">    downloadElement.href = href</span><br><span class="line">    downloadElement.download = filename</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(downloadElement)</span><br><span class="line">    downloadElement.click()</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(downloadElement)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$message.error(<span class="string">'下载失败,'</span> + err)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> download </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>前端大屏适配问题(用react示例)</title>
       <link href="/2021/07/28/screen-adaptation/"/>
       <url>/2021/07/28/screen-adaptation/</url>
@@ -271,6 +246,31 @@
         <tags>
             
             <tag> react </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>post请求下下载文件的方法</title>
+      <link href="/2021/07/28/download-file-post/"/>
+      <url>/2021/07/28/download-file-post/</url>
+      
+        <content type="html"><![CDATA[<p>如果后端是用 post 请求并且返回文件流可以采用以下代码</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$api</span><br><span class="line">  .post(url, &#123; params &#125;, &#123; <span class="attr">responseType</span>: <span class="string">'blob'</span> &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 触发下载</span></span><br><span class="line">    <span class="keyword">const</span> filename = res.headers[<span class="string">'content-disposition'</span>]</span><br><span class="line">      .replace(<span class="string">'attachment; filename='</span>, <span class="string">''</span>)</span><br><span class="line">      .replace(<span class="regexp">/\"/g</span>, <span class="string">''</span>)</span><br><span class="line">    <span class="keyword">const</span> downloadElement = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">    <span class="keyword">const</span> href = <span class="built_in">window</span>.URL.createObjectURL(res.data)</span><br><span class="line">    downloadElement.href = href</span><br><span class="line">    downloadElement.download = filename</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(downloadElement)</span><br><span class="line">    downloadElement.click()</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(downloadElement)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$message.error(<span class="string">'下载失败,'</span> + err)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> download </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
             
         </tags>
       

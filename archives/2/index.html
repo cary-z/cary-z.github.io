@@ -163,13 +163,6 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -184,7 +177,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/categories/">Categories</a>
                         </li>
                         
                     
@@ -192,6 +185,13 @@
                         
                         <li>
                             <a href="/photography/">Photography</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -284,9 +284,9 @@
 
         <div class="post-preview">
 
-            <a href="/2021/07/28/screen-adaptation/">
+            <a href="/2021/07/28/download-file-post/">
                 <h2 class="post-title">
-                    前端大屏适配问题(用react示例)
+                    post请求下下载文件的方法
                 </h2>
                 <h3 class="post-subtitle">
                     
@@ -295,8 +295,8 @@
                     
                     
                     
-                    采用了 css3 的缩放 transform: scale(X)属性
-import React, &#123; Component &#125; from &#39;react&#39;;import debounce from &#39;lodash.debounce&#39;import s from &#39;.&#x2F;index.less&#39;class Comp exten...
+                    如果后端是用 post 请求并且返回文件流可以采用以下代码
+this.$api  .post(url, &#123; params &#125;, &#123; responseType: 'blob' &#125;)  .then((res) =&gt; &#123;    // 触发下载    const filename = res.headers['content-dispositi...
                 </div>
             </a>
             
@@ -306,7 +306,7 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#react" title="react">react</a>
+                      <a href="/tags/#vue" title="vue">vue</a>
                     
                 </div>
             
@@ -522,15 +522,15 @@ import React, &#123; Component &#125; from &#39;react&#39;;import debounce from 
         
           <a href="categories/#Google"><li>Google</li></a>
         
-          <a href="categories/#CommonMethods"><li>CommonMethods</li></a>
-        
           <a href="categories/#config"><li>config</li></a>
+        
+          <a href="categories/#CommonMethods"><li>CommonMethods</li></a>
         
           <a href="categories/#encapsulate"><li>encapsulate</li></a>
         
-          <a href="categories/#download"><li>download</li></a>
-        
           <a href="categories/#transform"><li>transform</li></a>
+        
+          <a href="categories/#download"><li>download</li></a>
         
       </ul>
     </div>
