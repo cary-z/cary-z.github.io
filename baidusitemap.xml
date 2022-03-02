@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dusign.net/2021/08/26/Array-flattening/</loc>
+    <lastmod>2022-03-02</lastmod>
+  </url>
+  <url>
     <loc>https://dusign.net/2022/02/16/Write-Method/</loc>
     <lastmod>2022-03-01</lastmod>
   </url>
   <url>
-    <loc>https://dusign.net/2021/08/26/Array-flattening/</loc>
+    <loc>https://dusign.net/2021/08/30/ArrayDeDuplication/</loc>
     <lastmod>2022-01-20</lastmod>
   </url>
   <url>
@@ -17,7 +21,7 @@
     <lastmod>2022-01-20</lastmod>
   </url>
   <url>
-    <loc>https://dusign.net/2021/08/30/ArrayDeDuplication/</loc>
+    <loc>https://dusign.net/2021/11/19/ProportionComponent/</loc>
     <lastmod>2022-01-20</lastmod>
   </url>
   <url>
@@ -38,10 +42,6 @@
   </url>
   <url>
     <loc>https://dusign.net/2021/12/07/git-command/</loc>
-    <lastmod>2022-01-20</lastmod>
-  </url>
-  <url>
-    <loc>https://dusign.net/2021/11/19/ProportionComponent/</loc>
     <lastmod>2022-01-20</lastmod>
   </url>
 </urlset> 
